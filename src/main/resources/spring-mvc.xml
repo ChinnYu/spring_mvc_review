@@ -31,6 +31,8 @@
     <!-- Spring MVC不處理靜態資源 -->
     <mvc:default-servlet-handler />
 
+    <!--<mvc:annotation-driven></mvc:annotation-driven>-->
+
     <!-- 支援mvc注解驅動 -->
     <mvc:annotation-driven enable-matrix-variables="true" />
 
@@ -43,5 +45,11 @@
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
     </bean>
-
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes" value="text/plain;charset=UTF-8"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 </beans>
