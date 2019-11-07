@@ -19,6 +19,7 @@ import java.util.List;
  */
 
 @Controller
+@RequestMapping("param")
 public class ParamController {
 
     @RequestMapping(value="getCommonParam")
