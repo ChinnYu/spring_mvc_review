@@ -1,9 +1,12 @@
 package com.cyl.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author : Liu
@@ -27,4 +30,19 @@ public class MyController {
         System.out.println("helloSub");
         return "ok";
     }
+
+    @RequestMapping("forwardByMVC")
+    public String forwardByMVC(HttpServletRequest request){
+        request.setAttribute("msg","ok");
+        System.out.println("forwardByMVC");
+        return "forward";
+    }
+
+    @RequestMapping("forwardByMVC2")
+    public String forwardByMVC2(Model model){
+        model.addAttribute("msg","ok");
+        System.out.println("forwardByMVC");
+        return "forward";
+    }
+
 }

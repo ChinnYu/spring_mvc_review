@@ -12,5 +12,6 @@
 </head>
 <body>
     轉發跳轉過來的頁面
+    ${msg}
 </body>
 </html>
