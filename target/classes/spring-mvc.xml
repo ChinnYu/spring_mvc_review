@@ -59,4 +59,19 @@
         <property name="maxUploadSize" value="-1"/><!--最大文件大小,單位是字節,-1為無限制-->
     </bean>
 
+    <!--配置攔截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--單個星號,只攔一層-->
+            <mvc:mapping path="/my/**"/>
+            <!--多個星號,攔多層-->
+            <bean class="com.cyl.interceptor.FirstInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <!--單個星號,只攔一層-->
+            <mvc:mapping path="/my/**"/>
+            <!--多個星號,攔多層-->
+            <bean class="com.cyl.interceptor.SecondInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
