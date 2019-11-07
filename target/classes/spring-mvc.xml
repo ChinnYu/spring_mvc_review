@@ -28,9 +28,18 @@
         <property name="order" value="1" />
     </bean>
 
+    <!--處理response亂碼-->
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes" value="text/plain;charset=UTF-8"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
     <!-- Spring MVC不處理靜態資源 -->
     <mvc:default-servlet-handler />
-
+    <!--<mvc:resources mapping="/lib/js/" location="/lib/js/*"></mvc:resources>-->
     <!--<mvc:annotation-driven></mvc:annotation-driven>-->
 
     <!-- 支援mvc注解驅動 -->
@@ -45,11 +54,5 @@
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
     </bean>
-    <mvc:annotation-driven>
-        <mvc:message-converters register-defaults="true">
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                <property name="supportedMediaTypes" value="text/plain;charset=UTF-8"/>
-            </bean>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
+
 </beans>

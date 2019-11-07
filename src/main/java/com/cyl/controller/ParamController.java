@@ -53,7 +53,8 @@ public class ParamController {
     }
     @RequestMapping("getById")
     @ResponseBody
-    public User getById(){
+    public User getById(String id){
+        System.out.println(id);
         User user = new User();
         user.setUsername("美好");
         user.setPassword("2322");
@@ -75,5 +76,10 @@ public class ParamController {
         user.setCard(card);
         list.add(user);
         return list;
+    }
+
+    @RequestMapping("ajax")
+    public String ajax(){
+        return "ajax";
     }
 }
