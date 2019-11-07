@@ -74,4 +74,13 @@
             <bean class="com.cyl.interceptor.SecondInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+
+    <!--配置全局異常控制-->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Exception">error2</prop>
+            </props>
+        </property>
+    </bean>
 </beans>

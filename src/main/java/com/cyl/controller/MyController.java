@@ -2,6 +2,7 @@ package com.cyl.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,8 +22,17 @@ public class MyController {
     @ResponseBody
     public String hello(){
         System.out.println("hello");
-    return "ok";
+        //故意製造一個異常
+        int i = 1/0;
+        return "ok";
     }
+
+    //加上異常處理
+//    @ExceptionHandler
+//    public String handleException(Exception e){
+//        System.out.println("error");
+//        return "error";
+//    }
 
     @RequestMapping("hello/sub")
     @ResponseBody
